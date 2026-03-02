@@ -1,15 +1,58 @@
 public class OOPSBannerApp{
-	public static void main(String[] args){
-	printBanner();
-    }
-    public static void printBanner() {
+     public static void main(String[] args) {
 
-        System.out.println(String.join(" ", " ***** "," ***** "," ***** "," ***** "));
-        System.out.println(String.join(" ", "*     *","*     * ","*   * "," *   * "));
-        System.out.println(String.join(" ", "*     *","*     * ","*   * "," *   * "));
-        System.out.println(String.join(" ", "*     *","*     * ","***** "," ***** "));
-        System.out.println(String.join(" ", "*     *","*     * ","*     ","     * "));
-		System.out.println(String.join(" ", "*     *","*     * ","*     "," *   * "));
-		System.out.println(String.join(" ", " ***** "," *****  ","*     "," ***** "));
+        String[] banner = createBanner();
+
+        for (String line : banner) {
+            System.out.println(line);
+        }
+    }
+
+    public static String[] createBanner() {
+
+        return new String[] {
+
+            String.join("   ",
+                    " ***** ",
+                    " ***** ",
+                    " ******",
+                    " ***** "),
+
+            String.join("   ",
+                    "*     *",
+                    "*     *",
+                    "*     *",
+                    "*     *"),
+
+            String.join("   ",
+                    "*     *",
+                    "*     *",
+                    "*     *",
+                    "*      "),
+
+            String.join("   ",
+                    "*     *",
+                    "*     *",
+                    " ******",
+                    " ***** "),
+
+            String.join("   ",
+                    "*     *",
+                    "*     *",
+                    "*      ",
+                    "      *"),
+
+            String.join("   ",
+                    "*     *",
+                    "*     *",
+                    "*      ",
+                    "*     *"),
+
+            String.join("   ",
+                    " ***** ",
+                    " ***** ",
+                    "*      ",
+                    " ***** ")
+        };
     }
 }
