@@ -5,9 +5,6 @@ public class OOPSBannerApp{
 	private static final int HEIGHT = 7;
     static {
         register('O', new String[]{
-	public static void main(String[] args) {
-    Map<Character, CharacterPattern> patternMap = new HashMap<>();
-    patternMap.put('O', new CharacterPattern('O', new String[]{
                 " ***** ",
                 "*     *",
                 "*     *",
