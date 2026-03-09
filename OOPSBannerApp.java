@@ -1,58 +1,79 @@
+import java.util.HashMap;
+import java.util.Map;
 public class OOPSBannerApp{
 	public static void main(String[] args) {
 
-        String[] O = generateO();
-        String[] P = generateP();
-        String[] S = generateS();
+        Map<Character, CharacterPattern> patternMap = new HashMap<>();
 
-        String[] banner = {
-            String.join("   ", O[0], O[0], P[0], S[0]),
-            String.join("   ", O[1], O[1], P[1], S[1]),
-            String.join("   ", O[2], O[2], P[2], S[2]),
-            String.join("   ", O[3], O[3], P[3], S[3]),
-            String.join("   ", O[4], O[4], P[4], S[4]),
-            String.join("   ", O[5], O[5], P[5], S[5]),
-            String.join("   ", O[6], O[6], P[6], S[6])
-        };
+        patternMap.put('O', new CharacterPattern('O', new String[]{
+                " ***** ",
+                "*     *",
+                "*     *",
+                "*     *",
+                "*     *",
+                "*     *",
+                " ***** "
+        }));
+
+        patternMap.put('P', new CharacterPattern('P', new String[]{
+                " ******",
+                "*     *",
+                "*     *",
+                " ******",
+                "*      ",
+                "*      ",
+                "*      "
+        }));
+
+        patternMap.put('S', new CharacterPattern('S', new String[]{
+                " ***** ",
+                "*     *",
+                "*      ",
+                " ***** ",
+                "      *",
+                "*     *",
+                " ***** "
+        }));
+
+        String word = "OOPS";
+
+        int height = 7;
+        String[] banner = new String[height];
+
+        for (int row = 0; row < height; row++) {
+            StringBuilder line = new StringBuilder();
+
+            for (char ch : word.toCharArray()) {
+                CharacterPattern pattern = patternMap.get(ch);
+                if (pattern != null) {
+                    line.append(pattern.getLine(row)).append("   ");
+                }
+            }
+
+            banner[row] = line.toString();
+        }
 
         for (String line : banner) {
             System.out.println(line);
         }
     }
+}
 
-    public static String[] generateO() {
-        return new String[]{
-            " ***** ",
-            "*     *",
-            "*     *",
-            "*     *",
-            "*     *",
-            "*     *",
-            " ***** "
-        };
+class CharacterPattern {
+
+    private char character;
+    private String[] pattern;
+
+    public CharacterPattern(char character, String[] pattern) {
+        this.character = character;
+        this.pattern = pattern;
     }
 
-    public static String[] generateP() {
-        return new String[]{
-            " ******",
-            "*     *",
-            "*     *",
-            " ******",
-            "*      ",
-            "*      ",
-            "*      "
-        };
+    public char getCharacter() {
+        return character;
     }
 
-    public static String[] generateS() {
-        return new String[]{
-            " ***** ",
-            "*     *",
-            "*      ",
-            " ***** ",
-            "      *",
-            "*     *",
-            " ***** "
-        };
+    public String getLine(int index) {
+        return pattern[index];
     }
 }
