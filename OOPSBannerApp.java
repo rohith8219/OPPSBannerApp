@@ -2,10 +2,8 @@ import java.util.HashMap;
 import java.util.Map;
 public class OOPSBannerApp{
 	public static void main(String[] args) {
-
-        Map<Character, CharacterPattern> patternMap = new HashMap<>();
-
-        patternMap.put('O', new CharacterPattern('O', new String[]{
+    Map<Character, CharacterPattern> patternMap = new HashMap<>();
+    patternMap.put('O', new CharacterPattern('O', new String[]{
                 " ***** ",
                 "*     *",
                 "*     *",
@@ -56,7 +54,7 @@ public class OOPSBannerApp{
         for (String line : banner) {
             System.out.println(line);
         }
-    }
+  }
 }
 
 class CharacterPattern {
